@@ -25,7 +25,21 @@ gonew github.com/WBear29/go-restapi-server-template example.com/<project>
 ```bash
 go mod tidy
 go mod download
+docker compose up -d
 go run main.go
+```
+
+## build
+
+```bash
+make build
+```
+
+## lint
+
+```bash
+make lint
+make lint-fix
 ```
 
 ## Gen migration file
