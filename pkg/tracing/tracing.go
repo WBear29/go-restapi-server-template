@@ -3,7 +3,7 @@ package tracing
 import (
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/exporters/jaeger"
-	"go.opentelemetry.io/otel/sdk/resource"
+	resourcepkg "go.opentelemetry.io/otel/sdk/resource"
 	"go.opentelemetry.io/otel/sdk/trace"
 	semconv "go.opentelemetry.io/otel/semconv/v1.17.0"
 )
@@ -16,10 +16,10 @@ func newExporter(endpoint string) (trace.SpanExporter, error) {
 }
 
 // newResource returns a resource describing this application.
-func newResource(name, version, env string) (*resource.Resource, error) {
-	return resource.Merge(
-		resource.Default(),
-		resource.NewWithAttributes(
+func newResource(name, version, env string) (*resourcepkg.Resource, error) {
+	return resourcepkg.Merge(
+		resourcepkg.Default(),
+		resourcepkg.NewWithAttributes(
 			semconv.SchemaURL,
 			semconv.ServiceName(name),
 			semconv.ServiceVersion(version),
