@@ -1,0 +1,4 @@
+development:
+  dialect: mysql
+  datasource: test.db
+  dir: database/migrations

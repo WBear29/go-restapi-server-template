@@ -1,0 +1,19 @@
+app:
+  name: 'template'
+  Port: 3000
+  Env: 'development'
+
+log:
+  level: 'debug'
+
+db:
+  host: '0.0.0.0'
+  port: '3306'
+  user: user
+  pass: password
+  name: sample
+  retry: 10
+  migration_dir: 'database/migrations'
+
+tracing:
+  endpoint: 'http://localhost:14268/api/traces'
