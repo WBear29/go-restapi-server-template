@@ -31,3 +31,7 @@ licenses-show:
 licenses-report:
 	go-licenses report ./... > licenses.csv 2>/dev/null
 .PHONY: licenses-report
+
+vulncheck:
+	govulncheck ./...
+.PHONY: vulncheck

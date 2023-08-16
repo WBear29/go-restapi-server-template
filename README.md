@@ -20,6 +20,12 @@ go install github.com/rubenv/sql-migrate/...@latest
 go install github.com/google/go-licenses@latest
 ```
 
+- govulncheck
+
+```bash
+go install golang.org/x/vuln/cmd/govulncheck@latest
+```
+
 ## Make a new project
 
 ```bash
@@ -70,4 +76,5 @@ sql-migrate new <migration_name>
 - [gonew](https://go.dev/blog/gonew)
 - [sql-migrate](https://github.com/rubenv/sql-migrate)
 - [go-licenses](https://github.com/google/go-licenses)
+- [govulncheck](https://pkg.go.dev/golang.org/x/vuln#section-readme)
 - [go-clean-template](https://github.com/evrone/go-clean-template)
