@@ -23,3 +23,11 @@ lint:
 lint-fix:
 	docker run --rm -v `pwd`:/app -w /app golangci/golangci-lint:${LINTER_VERSION} golangci-lint run --fix
 .PHONY: lint-fix
+
+licenses-show:
+	go-licenses report ./... 2>/dev/null
+.PHONY: licenses-show
+
+licenses-report:
+	go-licenses report ./... > licenses.csv 2>/dev/null
+.PHONY: licenses-report

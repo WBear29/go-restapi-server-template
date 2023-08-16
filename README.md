@@ -14,6 +14,12 @@ go install golang.org/x/tools/cmd/gonew@latest
 go install github.com/rubenv/sql-migrate/...@latest
 ```
 
+- go-licenses
+
+```bash
+go install github.com/google/go-licenses@latest
+```
+
 ## Make a new project
 
 ```bash
@@ -48,7 +54,20 @@ make lint-fix
 sql-migrate new <migration_name>
 ```
 
+## Use packages Licenses
+
+- show
+    ```bash
+    make licenses-show
+    ```
+- save
+    ```bash
+    make licenses-report
+    ```
+
 # References
 
-- [gonew](https://go.dev/blog/gonew) is required.
+- [gonew](https://go.dev/blog/gonew)
+- [sql-migrate](https://github.com/rubenv/sql-migrate)
+- [go-licenses](https://github.com/google/go-licenses)
 - [go-clean-template](https://github.com/evrone/go-clean-template)
