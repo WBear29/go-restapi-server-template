@@ -12,6 +12,7 @@ import (
 	"github.com/WBear29/go-restapi-server-template/pkg/rdb"
 	"github.com/WBear29/go-restapi-server-template/pkg/tracing"
 	"github.com/gin-gonic/gin"
+	"go.opentelemetry.io/contrib/instrumentation/github.com/gin-gonic/gin/otelgin"
 	"go.opentelemetry.io/otel"
 )
 
@@ -64,6 +65,8 @@ func Run(cfg *config.Config, version string) {
 	gin.SetMode(cfg.Server.GinMode)
 	handler := gin.New()
 	handler.Use(logger.GinMiddleware(l))
+	// Gin OpenTelemetry instrumentation
+	handler.Use(otelgin.Middleware(cfg.App.Name))
 
 	v1.NewRouter(handler, l, sampleUseCase)
 	if err := handler.Run(fmt.Sprintf(":%d", cfg.Server.Port)); err != nil {

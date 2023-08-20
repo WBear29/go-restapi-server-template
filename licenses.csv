@@ -37,6 +37,7 @@ github.com/rubenv/sql-migrate/sqlparse,https://github.com/rubenv/sql-migrate/blo
 github.com/ugorji/go/codec,https://github.com/ugorji/go/blob/codec/v1.2.11/codec/LICENSE,MIT
 github.com/uptrace/opentelemetry-go-extra/otelgorm,https://github.com/uptrace/opentelemetry-go-extra/blob/otelgorm/v0.2.2/otelgorm/LICENSE,BSD-2-Clause
 github.com/uptrace/opentelemetry-go-extra/otelsql,https://github.com/uptrace/opentelemetry-go-extra/blob/otelsql/v0.2.2/otelsql/LICENSE,BSD-2-Clause
+go.opentelemetry.io/contrib/instrumentation/github.com/gin-gonic/gin/otelgin,https://github.com/open-telemetry/opentelemetry-go-contrib/blob/instrumentation/github.com/gin-gonic/gin/otelgin/v0.42.0/instrumentation/github.com/gin-gonic/gin/otelgin/LICENSE,Apache-2.0
 go.opentelemetry.io/otel,https://github.com/open-telemetry/opentelemetry-go/blob/v1.16.0/LICENSE,Apache-2.0
 go.opentelemetry.io/otel/exporters/jaeger,https://github.com/open-telemetry/opentelemetry-go/blob/exporters/jaeger/v1.16.0/exporters/jaeger/LICENSE,Apache-2.0
 go.opentelemetry.io/otel/exporters/jaeger/internal/third_party/thrift/lib/go/thrift,https://github.com/open-telemetry/opentelemetry-go/blob/exporters/jaeger/v1.16.0/exporters/jaeger/internal/third_party/thrift/LICENSE,Apache-2.0
