@@ -2,11 +2,16 @@ package app
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/WBear29/go-restapi-server-template/config"
+	v1 "github.com/WBear29/go-restapi-server-template/internal/controller/http/v1"
+	"github.com/WBear29/go-restapi-server-template/internal/usecase"
+	"github.com/WBear29/go-restapi-server-template/internal/usecase/repo"
 	"github.com/WBear29/go-restapi-server-template/pkg/logger"
 	"github.com/WBear29/go-restapi-server-template/pkg/rdb"
 	"github.com/WBear29/go-restapi-server-template/pkg/tracing"
+	"github.com/gin-gonic/gin"
 	"go.opentelemetry.io/otel"
 )
 
@@ -47,5 +52,20 @@ func Run(cfg *config.Config, version string) {
 	l.Info("Migrating database... from %s", cfg.DB.MigrationDir)
 	if err := dbHandler.Migrate(cfg.DB.MigrationDir); err != nil {
 		l.Error("Migration error: %v", err)
+	}
+
+	// repo
+	r := repo.New(dbHandler, l)
+
+	// Use Case
+	sampleUseCase := usecase.NewSample(r)
+
+	// Server
+	gin.SetMode(cfg.Server.GinMode)
+	handler := gin.New()
+
+	v1.NewRouter(handler, l, sampleUseCase)
+	if err := handler.Run(fmt.Sprintf(":%d", cfg.Server.Port)); err != nil {
+		l.Error("fail run http ser: %w", err)
 	}
 }

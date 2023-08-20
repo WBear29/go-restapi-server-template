@@ -10,14 +10,19 @@ type (
 	Config struct {
 		App
 		Log
+		Server
 		DB
 		Tracing
 	}
 
 	App struct {
 		Name string `yaml:"name" env:"APP_NAME"`
-		Port string `yaml:"port" env:"APP_PORT" env-default:"3000"`
 		Env  string `yaml:"env" env:"APP_ENV" env-default:"development"`
+	}
+
+	Server struct {
+		Port    string `yaml:"port" env:"SERVER_PORT" env-default:"3000"`
+		GinMode string `yaml:"gin_mode" env:"GIN_MODE" env-default:"release"`
 	}
 
 	Log struct {
