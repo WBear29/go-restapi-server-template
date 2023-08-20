@@ -66,6 +66,6 @@ func Run(cfg *config.Config, version string) {
 
 	v1.NewRouter(handler, l, sampleUseCase)
 	if err := handler.Run(fmt.Sprintf(":%d", cfg.Server.Port)); err != nil {
-		l.Error("fail run http ser: %w", err)
+		l.Error(fmt.Errorf("fail run http server: %w", err))
 	}
 }

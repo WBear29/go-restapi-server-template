@@ -21,7 +21,7 @@ type (
 	}
 
 	Server struct {
-		Port    string `yaml:"port" env:"SERVER_PORT" env-default:"3000"`
+		Port    int    `yaml:"port" env:"SERVER_PORT" env-default:"3000"`
 		GinMode string `yaml:"gin_mode" env:"GIN_MODE" env-default:"release"`
 	}
 

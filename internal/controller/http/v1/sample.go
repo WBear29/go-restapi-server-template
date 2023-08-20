@@ -1,6 +1,9 @@
 package v1
 
 import (
+	"net/http"
+
+	"github.com/WBear29/go-restapi-server-template/internal/controller/http/model"
 	"github.com/WBear29/go-restapi-server-template/internal/usecase"
 	"github.com/WBear29/go-restapi-server-template/pkg/logger"
 	"github.com/gin-gonic/gin"
@@ -19,4 +22,18 @@ func newSample(handler *gin.RouterGroup, s usecase.Sample, l *logger.Logger) {
 }
 
 func (r *sampleRoutes) postSample(c *gin.Context) {
+	enSample, appErr := model.ValidateSample(c)
+	if appErr != nil {
+		r.l.Error(appErr.Log())
+		model.ErrorResponse(c, appErr)
+		return
+	}
+	sample, appErr := r.uc.PostSample(c, enSample)
+	if appErr != nil {
+		r.l.Error(appErr.Log())
+		model.ErrorResponse(c, appErr)
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"sample": sample})
 }

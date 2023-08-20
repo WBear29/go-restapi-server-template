@@ -6,6 +6,10 @@ app:
 log:
   level: 'debug'
 
+server:
+  port: 3000
+  gin_mode: 'debug'
+
 db:
   host: '0.0.0.0'
   port: '3306'
