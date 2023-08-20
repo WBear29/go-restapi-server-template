@@ -3,7 +3,7 @@ required:
   - errorCode
   - errorInfo
 properties:
-  errorCoede:
+  errorCode:
     $ref: ./errorCode.yaml
   errorInfo:
     $ref: ./errorInfo.yaml
