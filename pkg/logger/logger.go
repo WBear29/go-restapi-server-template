@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"time"
 
+	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog"
 )
 
@@ -98,5 +100,18 @@ func (l *Logger) msg(level string, message any, args ...any) {
 		l.log(msg, args...)
 	default:
 		l.log(fmt.Sprintf("%s message %v has unknown type %v", level, message, msg), args...)
+	}
+}
+
+func GinMiddleware(l *Logger) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		start := time.Now()
+		c.Next()
+		l.logger.Info().
+			Str("method", c.Request.Method).
+			Str("path", c.Request.URL.Path).
+			Int("status", c.Writer.Status()).
+			Str("ip", c.ClientIP()).
+			Dur("latency", time.Since(start))
 	}
 }

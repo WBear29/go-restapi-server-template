@@ -63,6 +63,7 @@ func Run(cfg *config.Config, version string) {
 	// Server
 	gin.SetMode(cfg.Server.GinMode)
 	handler := gin.New()
+	handler.Use(logger.GinMiddleware(l))
 
 	v1.NewRouter(handler, l, sampleUseCase)
 	if err := handler.Run(fmt.Sprintf(":%d", cfg.Server.Port)); err != nil {
