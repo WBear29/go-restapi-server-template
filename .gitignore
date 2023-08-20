@@ -1,2 +1,5 @@
 go.sum
 sample
+internal/controller/http/model/model_*.go
+internal/controller/http/model/.openapi-generator
+internal/controller/http/model/api
