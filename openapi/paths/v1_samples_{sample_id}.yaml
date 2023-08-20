@@ -1,0 +1,41 @@
+patch:
+  summary: Patch Sample
+  tags:
+    - Sample
+  operationId: patch-sample
+  parameters:
+    - $ref: ../components/parameters/SampleIdRequired.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Sample.yaml
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ResSample.yaml
+    '400':
+      $ref: ../components/responses/InvalidError.yaml
+    '404':
+      $ref: ../components/responses/NotFoundError.yaml
+    '500':
+      $ref: ../components/responses/ServerError.yaml
+delete:
+  summary: Delete Sample
+  tags:
+    - Sample
+  operationId: delete-sample
+  parameters:
+    - $ref: ../components/parameters/SampleIdRequired.yaml
+  responses:
+    '204':
+      description: OK
+    '400':
+      $ref: ../components/responses/InvalidError.yaml
+    '404':
+      $ref: ../components/responses/NotFoundError.yaml
+    '500':
+      $ref: ../components/responses/ServerError.yaml

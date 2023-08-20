@@ -1,0 +1,5 @@
+title: Sample
+type: object
+properties:
+  name:
+    $ref: ./sampleName.yaml

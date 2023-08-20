@@ -1,0 +1,5 @@
+description: Invalid Request Error
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/error.yaml

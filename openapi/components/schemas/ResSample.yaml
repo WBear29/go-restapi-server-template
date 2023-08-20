@@ -1,0 +1,9 @@
+title: ResSample
+type: object
+properties:
+  id:
+    $ref: ./sampleId.yaml
+  name:
+    $ref: ./sampleName.yaml
+  time_stamps:
+    $ref: ./timeStamps.yaml

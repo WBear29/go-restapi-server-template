@@ -1,0 +1,30 @@
+get:
+  summary: Get Sample list
+  tags:
+    - Sample
+  operationId: get-sample
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/ResSample.yaml
+    '400':
+      $ref: ../components/responses/InvalidError.yaml
+    '500':
+      $ref: ../components/responses/ServerError.yaml
+post:
+  summary: Create Sample
+  tags:
+    - Sample
+  operationId: post-sample
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Sample.yaml

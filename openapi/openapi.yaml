@@ -1,0 +1,13 @@
+openapi: 3.1.0
+info:
+  title: Sample API
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+security:
+  - {}
+paths:
+  /v1/samples:
+    $ref: paths/v1_samples.yaml
+  /v1/samples/{sample_id}:
+    $ref: paths/v1_samples_{sample_id}.yaml

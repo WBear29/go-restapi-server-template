@@ -1,0 +1,9 @@
+description: using error response
+required:
+  - errorCode
+  - errorInfo
+properties:
+  errorCoede:
+    $ref: ./errorCode.yaml
+  errorInfo:
+    $ref: ./errorInfo.yaml

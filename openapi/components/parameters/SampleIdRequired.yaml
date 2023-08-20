@@ -1,0 +1,7 @@
+name: sample_id
+in: path
+description: ID of sample
+required: true
+schema:
+  type: string
+  format: uuid

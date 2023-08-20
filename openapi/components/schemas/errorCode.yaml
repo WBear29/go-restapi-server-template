@@ -1,0 +1,6 @@
+description: |
+  error code
+  * 1000: hoge
+  * 1001: hoge
+  * 1002: hoge
+type: integer
