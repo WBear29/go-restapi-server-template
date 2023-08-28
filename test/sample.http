@@ -6,3 +6,6 @@ content-type: application/json
 {
     "name": "sample name"
 }
+
+### Get a sample
+GET http://localhost:3000/v1/samples HTTP/1.1
