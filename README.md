@@ -37,6 +37,7 @@ gonew github.com/WBear29/go-restapi-server-template example.com/<project>
 ```bash
 go mod tidy
 go mod download
+make generate
 docker compose up -d
 go run main.go
 ```
