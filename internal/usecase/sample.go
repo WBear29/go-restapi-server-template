@@ -26,3 +26,8 @@ func (uc *SampleUseCase) PostSample(ctx context.Context, sample entity.Sample) (
 func (uc *SampleUseCase) GetSamples(ctx context.Context) ([]entity.Sample, apperr.Err) {
 	return uc.repo.SelectSamples(ctx)
 }
+
+// UpdateSample
+func (uc *SampleUseCase) PatchSample(ctx context.Context, sample entity.Sample) (entity.Sample, apperr.Err) {
+	return uc.repo.UpdateSample(ctx, sample)
+}
