@@ -1,0 +1,8 @@
+### Create a sample
+
+POST http://localhost:3000/v1/samples HTTP/1.1
+content-type: application/json
+
+{
+    "name": "sample name"
+}
