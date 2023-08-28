@@ -21,3 +21,8 @@ func NewSample(r Repository) *SampleUseCase {
 func (uc *SampleUseCase) PostSample(ctx context.Context, sample entity.Sample) (entity.Sample, apperr.Err) {
 	return uc.repo.InsertSample(ctx, sample)
 }
+
+// GetSamples
+func (uc *SampleUseCase) GetSamples(ctx context.Context) ([]entity.Sample, apperr.Err) {
+	return uc.repo.SelectSamples(ctx)
+}

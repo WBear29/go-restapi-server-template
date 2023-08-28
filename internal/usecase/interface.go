@@ -16,5 +16,6 @@ type (
 	// ImplDir: ./repo
 	Repository interface {
 		InsertSample(ctx context.Context, sample entity.Sample) (entity.Sample, apperr.Err)
+		SelectSamples(ctx context.Context) ([]entity.Sample, apperr.Err)
 	}
 )
