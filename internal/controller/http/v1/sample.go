@@ -19,6 +19,7 @@ func newSample(handler *gin.RouterGroup, s usecase.Sample, l *logger.Logger) {
 	{
 		handler.POST("/samples", r.postSample)
 		handler.GET("/samples", r.getSamples)
+		handler.PATCH("/samples/:id", r.patchSample)
 	}
 }
 
@@ -49,4 +50,28 @@ func (r *sampleRoutes) getSamples(c *gin.Context) {
 
 	res := model.ResSamplesFrom(samples)
 	c.JSON(http.StatusOK, res)
+}
+
+func (r *sampleRoutes) patchSample(c *gin.Context) {
+	id, appErr := model.ValidateID(c)
+	if appErr != nil {
+		r.l.Error(appErr.Log())
+		model.ErrorResponse(c, appErr)
+		return
+	}
+	enSample, appErr := model.ValidateSample(c)
+	if appErr != nil {
+		r.l.Error(appErr.Log())
+		model.ErrorResponse(c, appErr)
+		return
+	}
+	enSample.ID = id
+	sample, appErr := r.uc.PatchSample(c, enSample)
+	if appErr != nil {
+		r.l.Error(appErr.Log())
+		model.ErrorResponse(c, appErr)
+		return
+	}
+
+	c.JSON(http.StatusOK, model.ResSampleFrom(sample))
 }
