@@ -46,3 +46,11 @@ func ResSampleFrom(enSample entity.Sample) ResSample {
 		TimeStamps: TimeStampsFrom(enSample.TimeStamps),
 	}
 }
+
+func ResSamplesFrom(enSamples []entity.Sample) []ResSample {
+	res := make([]ResSample, len(enSamples))
+	for i, enSample := range enSamples {
+		res[i] = ResSampleFrom(enSample)
+	}
+	return res
+}

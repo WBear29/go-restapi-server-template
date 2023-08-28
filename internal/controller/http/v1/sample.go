@@ -18,6 +18,7 @@ func newSample(handler *gin.RouterGroup, s usecase.Sample, l *logger.Logger) {
 	r := &sampleRoutes{s, l}
 	{
 		handler.POST("/samples", r.postSample)
+		handler.GET("/samples", r.getSamples)
 	}
 }
 
@@ -36,4 +37,16 @@ func (r *sampleRoutes) postSample(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, model.ResSampleFrom(sample))
+}
+
+func (r *sampleRoutes) getSamples(c *gin.Context) {
+	samples, appErr := r.uc.GetSamples(c)
+	if appErr != nil {
+		r.l.Error(appErr.Log())
+		model.ErrorResponse(c, appErr)
+		return
+	}
+
+	res := model.ResSamplesFrom(samples)
+	c.JSON(http.StatusOK, res)
 }

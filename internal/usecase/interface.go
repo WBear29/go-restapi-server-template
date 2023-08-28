@@ -11,6 +11,7 @@ type (
 	// ImplDir: ./
 	Sample interface {
 		PostSample(ctx context.Context, sample entity.Sample) (entity.Sample, apperr.Err)
+		GetSamples(ctx context.Context) ([]entity.Sample, apperr.Err)
 	}
 
 	// ImplDir: ./repo
