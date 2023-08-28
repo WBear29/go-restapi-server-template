@@ -29,7 +29,7 @@ go install golang.org/x/vuln/cmd/govulncheck@latest
 ## Make a new project
 
 ```bash
-gonew github.com/WBear29/go-restapi-server-template example.com/<project>
+gonew github.com/WBear29/go-restapi-server-template <example.com>/<project>
 ```
 
 ## Run
