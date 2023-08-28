@@ -36,3 +36,15 @@ func (r *Repository) InsertSample(ctx context.Context, enSample entity.Sample) (
 	}
 	return sample.toEntity(), nil
 }
+
+func (r *Repository) SelectSamples(ctx context.Context) ([]entity.Sample, apperr.Err) {
+	var samples []sample
+	if err := r.DBHandler.Conn.WithContext(ctx).Find(&samples).Error; err != nil {
+		return nil, apperr.New(apperr.ERROR_INTERNAL_SERVER_ERROR, err.Error())
+	}
+	res := make([]entity.Sample, len(samples))
+	for i, sample := range samples {
+		res[i] = sample.toEntity()
+	}
+	return res, nil
+}
