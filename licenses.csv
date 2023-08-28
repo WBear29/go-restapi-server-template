@@ -21,9 +21,11 @@ github.com/go-ozzo/ozzo-validation,https://github.com/go-ozzo/ozzo-validation/bl
 github.com/go-playground/locales,https://github.com/go-playground/locales/blob/v0.14.1/LICENSE,MIT
 github.com/go-playground/universal-translator,https://github.com/go-playground/universal-translator/blob/v0.18.1/LICENSE,MIT
 github.com/go-playground/validator/v10,https://github.com/go-playground/validator/blob/v10.15.1/LICENSE,MIT
-github.com/go-sql-driver/mysql,https://github.com/go-sql-driver/mysql/blob/v1.7.0/LICENSE,MPL-2.0
 github.com/google/uuid,https://github.com/google/uuid/blob/v1.3.0/LICENSE,BSD-3-Clause
 github.com/ilyakaznacheev/cleanenv,https://github.com/ilyakaznacheev/cleanenv/blob/v1.5.0/LICENSE,MIT
+github.com/jackc/pgpassfile,https://github.com/jackc/pgpassfile/blob/v1.0.0/LICENSE,MIT
+github.com/jackc/pgservicefile,https://github.com/jackc/pgservicefile/blob/091c0ba34f0a/LICENSE,MIT
+github.com/jackc/pgx/v5,https://github.com/jackc/pgx/blob/v5.3.1/LICENSE,MIT
 github.com/jinzhu/inflection,https://github.com/jinzhu/inflection/blob/v1.0.0/LICENSE,MIT
 github.com/jinzhu/now,https://github.com/jinzhu/now/blob/v1.1.5/License,MIT
 github.com/joho/godotenv,https://github.com/joho/godotenv/blob/v1.5.1/LICENCE,MIT
@@ -44,12 +46,12 @@ go.opentelemetry.io/otel/exporters/jaeger/internal/third_party/thrift/lib/go/thr
 go.opentelemetry.io/otel/metric,https://github.com/open-telemetry/opentelemetry-go/blob/metric/v1.16.0/metric/LICENSE,Apache-2.0
 go.opentelemetry.io/otel/sdk,https://github.com/open-telemetry/opentelemetry-go/blob/sdk/v1.16.0/sdk/LICENSE,Apache-2.0
 go.opentelemetry.io/otel/trace,https://github.com/open-telemetry/opentelemetry-go/blob/trace/v1.16.0/trace/LICENSE,Apache-2.0
-golang.org/x/crypto/sha3,https://cs.opensource.google/go/x/crypto/+/v0.12.0:LICENSE,BSD-3-Clause
+golang.org/x/crypto,https://cs.opensource.google/go/x/crypto/+/v0.12.0:LICENSE,BSD-3-Clause
 golang.org/x/net,https://cs.opensource.google/go/x/net/+/v0.14.0:LICENSE,BSD-3-Clause
 golang.org/x/sys/unix,https://cs.opensource.google/go/x/sys/+/v0.11.0:LICENSE,BSD-3-Clause
 golang.org/x/text,https://cs.opensource.google/go/x/text/+/v0.12.0:LICENSE,BSD-3-Clause
 google.golang.org/protobuf,https://github.com/protocolbuffers/protobuf-go/blob/v1.31.0/LICENSE,BSD-3-Clause
 gopkg.in/yaml.v3,https://github.com/go-yaml/yaml/blob/v3.0.1/LICENSE,MIT
-gorm.io/driver/mysql,https://github.com/go-gorm/mysql/blob/v1.5.1/License,MIT
+gorm.io/driver/postgres,https://github.com/go-gorm/postgres/blob/v1.5.2/License,MIT
 gorm.io/gorm,https://github.com/go-gorm/gorm/blob/v1.25.3/LICENSE,MIT
 olympos.io/encoding/edn,https://github.com/go-edn/edn/blob/d3554ca0b0a3/LICENSE,BSD-3-Clause
