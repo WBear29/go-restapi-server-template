@@ -17,7 +17,7 @@ type sampleRoutes struct {
 func newSample(handler *gin.RouterGroup, s usecase.Sample, l *logger.Logger) {
 	r := &sampleRoutes{s, l}
 	{
-		handler.POST("/sample", r.postSample)
+		handler.POST("/samples", r.postSample)
 	}
 }
 
