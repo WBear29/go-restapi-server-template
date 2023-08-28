@@ -39,7 +39,7 @@ func ValidateSample(c *gin.Context) (entity.Sample, apperr.Err) {
 	return sample.Validate()
 }
 
-func CompanyFrom(enSample entity.Sample) ResSample {
+func ResSampleFrom(enSample entity.Sample) ResSample {
 	return ResSample{
 		Id:         enSample.ID.String(),
 		Name:       enSample.Name,

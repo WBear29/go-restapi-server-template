@@ -35,5 +35,5 @@ func (r *sampleRoutes) postSample(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"sample": sample})
+	c.JSON(http.StatusOK, model.ResSampleFrom(sample))
 }
