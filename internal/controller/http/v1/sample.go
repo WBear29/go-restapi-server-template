@@ -20,6 +20,7 @@ func newSample(handler *gin.RouterGroup, s usecase.Sample, l *logger.Logger) {
 		handler.POST("/samples", r.postSample)
 		handler.GET("/samples", r.getSamples)
 		handler.PATCH("/samples/:id", r.patchSample)
+		handler.DELETE("/samples/:id", r.deleteSample)
 	}
 }
 
@@ -74,4 +75,20 @@ func (r *sampleRoutes) patchSample(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, model.ResSampleFrom(sample))
+}
+
+func (r *sampleRoutes) deleteSample(c *gin.Context) {
+	id, appErr := model.ValidateID(c)
+	if appErr != nil {
+		r.l.Error(appErr.Log())
+		model.ErrorResponse(c, appErr)
+		return
+	}
+	if appErr := r.uc.DeleteSample(c, id); appErr != nil {
+		r.l.Error(appErr.Log())
+		model.ErrorResponse(c, appErr)
+		return
+	}
+
+	c.Status(http.StatusNoContent)
 }
