@@ -9,14 +9,14 @@ import (
 	"github.com/google/uuid"
 )
 
-type Sample struct {
+type sample struct {
 	ID        uuid.UUID `gorm:"type:uuid;default:uuid_generate_v4()"`
 	Name      string
 	CreatedAt time.Time
 	UpdatedAt time.Time
 }
 
-func (s Sample) toEntity() entity.Sample {
+func (s sample) toEntity() entity.Sample {
 	return entity.Sample{
 		ID:   s.ID,
 		Name: s.Name,
@@ -28,7 +28,7 @@ func (s Sample) toEntity() entity.Sample {
 }
 
 func (r *Repository) InsertSample(ctx context.Context, enSample entity.Sample) (entity.Sample, apperr.Err) {
-	sample := Sample{
+	sample := sample{
 		Name: enSample.Name,
 	}
 	if err := r.DBHandler.Conn.WithContext(ctx).Create(&sample).Error; err != nil {
