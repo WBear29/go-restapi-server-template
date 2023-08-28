@@ -9,3 +9,10 @@ content-type: application/json
 
 ### Get a sample
 GET http://localhost:3000/v1/samples HTTP/1.1
+
+### Update a sample
+PATCH http://localhost:3000/v1/samples/:id HTTP/1.1
+
+{
+    "name": "update sample name"
+}
