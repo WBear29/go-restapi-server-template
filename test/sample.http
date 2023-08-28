@@ -16,3 +16,6 @@ PATCH http://localhost:3000/v1/samples/:id HTTP/1.1
 {
     "name": "update sample name"
 }
+
+### Delete a sample
+DELETE http://localhost:3000/v1/samples/:id HTTP/1.1
