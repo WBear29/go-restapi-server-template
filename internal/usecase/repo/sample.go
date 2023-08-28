@@ -59,3 +59,13 @@ func (r Repository) UpdateSample(ctx context.Context, enSample entity.Sample) (e
 	}
 	return sample.toEntity(), nil
 }
+
+func (r Repository) DeleteSample(ctx context.Context, id uuid.UUID) apperr.Err {
+	sample := sample{
+		ID: id,
+	}
+	if err := r.DBHandler.Conn.WithContext(ctx).Delete(&sample).Error; err != nil {
+		return apperr.New(apperr.ERROR_INTERNAL_SERVER_ERROR, err.Error())
+	}
+	return nil
+}
