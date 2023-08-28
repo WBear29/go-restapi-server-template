@@ -48,3 +48,14 @@ func (r *Repository) SelectSamples(ctx context.Context) ([]entity.Sample, apperr
 	}
 	return res, nil
 }
+
+func (r Repository) UpdateSample(ctx context.Context, enSample entity.Sample) (entity.Sample, apperr.Err) {
+	sample := sample{
+		ID:   enSample.ID,
+		Name: enSample.Name,
+	}
+	if err := r.DBHandler.Conn.WithContext(ctx).Updates(&sample).Error; err != nil {
+		return entity.Sample{}, apperr.New(apperr.ERROR_INTERNAL_SERVER_ERROR, err.Error())
+	}
+	return sample.toEntity(), nil
+}
