@@ -9,21 +9,19 @@ services:
       - COLLECTOR_OTLP_ENABLED=true
       - LOG_LEVEL=debug
   db:
-    image: mariadb:10.7
+    image: postgres:15.4-alpine3.18
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
-      MYSQL_DATABASE: sample
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=sample
     ports:
-      - 3306:3306
+      - 5432:5432
     volumes:
-      - "./database/my.cnf:/etc/mysql/conf.d/my.cnf"
+      - postgres:/var/lib/postgresql/data
     logging:
       driver: json-file
       options:
         max-size: 10m
         max-file: "3"
 volumes:
-  db:
-    driver: local
+  postgres:

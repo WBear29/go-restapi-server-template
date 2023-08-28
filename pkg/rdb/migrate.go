@@ -14,6 +14,6 @@ func (dbh *DBHandler) Migrate(dir string) error {
 		Dir: dir,
 	}
 
-	_, err = migratepkg.Exec(db, "mysql", migrate, migratepkg.Up)
+	_, err = migratepkg.Exec(db, "postgres", migrate, migratepkg.Up)
 	return err
 }

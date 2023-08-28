@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/uptrace/opentelemetry-go-extra/otelgorm"
-	"gorm.io/driver/mysql"
+	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
@@ -14,8 +14,11 @@ type DBHandler struct {
 }
 
 func connect(host, port, user, name, pass string, count uint) (*gorm.DB, error) {
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", user, pass, host, port, name)
-	conn, err := gorm.Open(mysql.Open(dsn))
+	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable", host, user, pass, name, port)
+	conn, err := gorm.Open(postgres.New(postgres.Config{
+		DSN:                  dsn,
+		PreferSimpleProtocol: true,
+	}))
 	if err != nil {
 		if count == 0 {
 			return nil, err

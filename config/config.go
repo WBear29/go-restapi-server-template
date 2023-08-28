@@ -31,7 +31,7 @@ type (
 
 	DB struct {
 		Host         string `yaml:"host" env:"DB_HOST" env-default:"0.0.0.0"`
-		Port         string `yaml:"port" env:"DB_PORT" env-default:"3306"`
+		Port         string `yaml:"port" env:"DB_PORT" env-default:"5432"`
 		User         string `yaml:"user" env:"DB_USER" env-default:"root"`
 		Pass         string `yaml:"pass" env:"DB_PASS" env-default:"password"`
 		Name         string `yaml:"name" env:"DB_NAME" env-default:"sample"`

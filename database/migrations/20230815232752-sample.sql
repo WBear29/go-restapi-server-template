@@ -1,11 +1,12 @@
 
 -- +migrate Up
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE TABLE samples (
-    id binary(16) NOT NULL primary key,
-    name varchar(255) NOT NULL,
+    id uuid NOT NULL primary key DEFAULT uuid_generate_v4(),
+    "name" varchar(255) NOT NULL,
     created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 -- +migrate Down
-DROP TABLE sample;
+DROP TABLE samples;

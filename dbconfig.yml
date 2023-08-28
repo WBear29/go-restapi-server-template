@@ -1,4 +1,4 @@
 development:
-  dialect: mysql
+  dialect: postgres
   datasource: test.db
   dir: database/migrations
