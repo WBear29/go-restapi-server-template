@@ -5,6 +5,7 @@ import (
 
 	"github.com/WBear29/go-restapi-server-template/internal/entity"
 	"github.com/WBear29/go-restapi-server-template/pkg/apperr"
+	"github.com/google/uuid"
 )
 
 type (
@@ -13,6 +14,7 @@ type (
 		PostSample(ctx context.Context, sample entity.Sample) (entity.Sample, apperr.Err)
 		GetSamples(ctx context.Context) ([]entity.Sample, apperr.Err)
 		PatchSample(ctx context.Context, sample entity.Sample) (entity.Sample, apperr.Err)
+		DeleteSample(ctx context.Context, id uuid.UUID) apperr.Err
 	}
 
 	// ImplDir: ./repo
@@ -20,5 +22,6 @@ type (
 		InsertSample(ctx context.Context, sample entity.Sample) (entity.Sample, apperr.Err)
 		SelectSamples(ctx context.Context) ([]entity.Sample, apperr.Err)
 		UpdateSample(ctx context.Context, sample entity.Sample) (entity.Sample, apperr.Err)
+		DeleteSample(ctx context.Context, id uuid.UUID) apperr.Err
 	}
 )
