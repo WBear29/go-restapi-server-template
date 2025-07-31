@@ -12,6 +12,7 @@ import (
 type sample struct {
 	ID        uuid.UUID `gorm:"primary_key;type:uuid;default:uuid_generate_v4()"`
 	Name      string
+	Age       int
 	CreatedAt time.Time
 	UpdatedAt time.Time
 }
@@ -20,6 +21,7 @@ func (s sample) toEntity() entity.Sample {
 	return entity.Sample{
 		ID:   s.ID,
 		Name: s.Name,
+		Age:  s.Age,
 		TimeStamps: entity.TimeStamps{
 			CreatedAt: s.CreatedAt,
 			UpdatedAt: s.UpdatedAt,
@@ -30,6 +32,7 @@ func (s sample) toEntity() entity.Sample {
 func (r *Repository) InsertSample(ctx context.Context, enSample entity.Sample) (entity.Sample, apperr.Err) {
 	sample := sample{
 		Name: enSample.Name,
+		Age:  enSample.Age,
 	}
 	if err := r.DBHandler.Conn.WithContext(ctx).Create(&sample).Error; err != nil {
 		return entity.Sample{}, apperr.New(apperr.ERROR_INTERNAL_SERVER_ERROR, err.Error())
@@ -53,6 +56,7 @@ func (r Repository) UpdateSample(ctx context.Context, enSample entity.Sample) (e
 	sample := sample{
 		ID:   enSample.ID,
 		Name: enSample.Name,
+		Age:  enSample.Age,
 	}
 	if err := r.DBHandler.Conn.WithContext(ctx).Updates(&sample).Error; err != nil {
 		return entity.Sample{}, apperr.New(apperr.ERROR_INTERNAL_SERVER_ERROR, err.Error())

@@ -5,5 +5,7 @@ properties:
     $ref: ./sampleId.yaml
   name:
     $ref: ./sampleName.yaml
+  age:
+    $ref: ./sampleAge.yaml
   time_stamps:
     $ref: ./timeStamps.yaml
