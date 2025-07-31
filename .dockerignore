@@ -1,0 +1,64 @@
+# Git
+.git
+.gitignore
+README.md
+
+# Development
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# Test files
+test
+*.test
+*_test.go
+
+# Temporary folders
+tmp
+temp
+
+# Docker
+Dockerfile*
+docker-compose*
+.dockerignore
+
+# Build artifacts
+dist
+build
+
+# Dependencies (will be downloaded during build)
+vendor
+
+# Documentation
+docs
+*.md
+
+# Makefile and other development tools
+Makefile
+licenses.csv
