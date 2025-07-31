@@ -3,3 +3,5 @@ type: object
 properties:
   name:
     $ref: ./sampleName.yaml
+  age:
+    $ref: ./sampleAge.yaml

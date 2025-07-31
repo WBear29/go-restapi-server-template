@@ -18,6 +18,7 @@ func BindSample(c *gin.Context) (Sample, apperr.Err) {
 func (s Sample) toEntity() entity.Sample {
 	return entity.Sample{
 		Name: s.Name,
+		Age:  int(s.Age),
 	}
 }
 
@@ -43,6 +44,7 @@ func ResSampleFrom(enSample entity.Sample) ResSample {
 	return ResSample{
 		Id:         enSample.ID.String(),
 		Name:       enSample.Name,
+		Age: 			int32(enSample.Age),
 		TimeStamps: TimeStampsFrom(enSample.TimeStamps),
 	}
 }
